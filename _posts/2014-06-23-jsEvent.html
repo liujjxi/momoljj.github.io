@@ -1,0 +1,34 @@
+---
+layout: default
+title: js事件探秘
+---
+<h2>{{ page.title }}</h2>
+<p>{{ page.date | date_to_string }}</p>
+<dl>
+	<dt><h4>事件冒泡与事件捕获</h4></dt>
+	<dd>
+		<strong>理解事件流</strong>
+		<p>描述的是从页面中接受事件的顺序</p>
+		<p>IE 事件冒泡流：即事件最开始由最具体的元素（文档中最深的那个节点）接收，然后逐级向上传播至最不具体的节点（元素）</p>
+		<p>N 事件捕获流：不太具体的节点应该更早的接收到事件，具体的节点最后接收到事件</p>
+	</dd>
+	<dt><h4>事件处理程序</h4></dt>
+	<dd>
+		<strong>HTML事件处理程序</strong>
+		<p>写在HTML标签上的事件处理</p>
+		<p>缺点：HTML和JS代码紧密的耦合在一起,JS代码和HTML代码都要进行修改</p>
+		<strong>DOM0级事件处理程序</strong>
+		<P>较传统的方式：把一个函数赋值给一个事件的处理程序属性，用的比较多的方法 简单 跨浏览器的优势</P>
+		<p>删除事件：btn2.onclick=null;</p>
+		<strong>DOM2级事件处理程序</strong>
+		<p>定义了两个方法：用于处理指定和删除事件处理程序的操作addEventListener()和removeEventListener()</p>
+		<p>接收三个参数：要处理的事件名、作为事件处理程序的函数和布尔值(false:事件冒泡)</p> 
+		<p>eg:btn.addEventListener('click',showMes,false)</p> 
+		<strong>IE事件处理程序</strong>
+		<p>attachEvent()添加事件</p>
+		<p>detachEvent()删除事件</p>
+		<p>接收相同的两个参数：事件处理程序的名称和事件处理程序的函数</p>
+		<p>eg:btn.attachEvent('onclick',showMes)</p>
+	</dd>
+	<dd>不同的事件类型</dd>
+</dl>
